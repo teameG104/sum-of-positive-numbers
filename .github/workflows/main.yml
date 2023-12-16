@@ -1,0 +1,37 @@
+name: C++ CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: sudo apt-get install -y g++
+
+    - name: Build
+      run: g++ -o program main.cpp
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: program
+        path: ./program
+
+  run:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: program
+
+    - name: Run
+      run: echo "1 2 3 4 5 0" | ./program

@@ -34,4 +34,4 @@ jobs:
         name: program
 
     - name: Run
-      run: echo "1 2 3 4 5 0" | ./program
+      run: ./program

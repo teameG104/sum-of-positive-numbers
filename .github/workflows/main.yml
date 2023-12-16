@@ -33,5 +33,8 @@ jobs:
       with:
         name: program
 
+    - name: Set execute permissions
+      run: chmod +x program
+
     - name: Run
-      run: ./program
+      run: echo "1 2 3 4 5 0" | ./program

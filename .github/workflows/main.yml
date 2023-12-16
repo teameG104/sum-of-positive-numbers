@@ -13,7 +13,7 @@ jobs:
       run: sudo apt-get install -y g++
 
     - name: Build
-      run: g++ -o program sum.cpp
+      run: g++ -o program main.cpp
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
